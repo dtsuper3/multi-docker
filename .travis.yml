@@ -10,15 +10,15 @@ script:
 
 after_success:
   - docker build -t dtsuper3/multi-client ./client
-  - dokcer build -t dtsuper3/multi-nginx ./nginx
-  - dokcer build -t dtsuper3/multi-server ./server
-  - dokcer build -t dtsuper3/multi-worker ./worker
+  - docker build -t dtsuper3/multi-nginx ./nginx
+  - docker build -t dtsuper3/multi-server ./server
+  - docker build -t dtsuper3/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push dtsuper3/multi-client
-  - dokcer push dtsuper3/multi-nginx
-  - dokcer push dtsuper3/multi-server
-  - dokcer push dtsuper3/multi-worker
+  - docker push dtsuper3/multi-nginx
+  - docker push dtsuper3/multi-server
+  - docker push dtsuper3/multi-worker
 
 
